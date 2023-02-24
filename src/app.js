@@ -22,9 +22,20 @@ async function fetchData(name){
         console.log(result.data[0]);
 
         searchResult.innerHTML = `
-        <h3>${country.name}</h3>        <p>${country.region}</p>    `
-
+        <h3>${country.name}</h3>
+        <p>${country.region} ${currencyCreator(country.currencies)}</p>
+`
     } catch(e){
         console.error(e);
+    }
+}
+
+
+function currencyCreator(currencies){
+    let output = "and you can pay with";
+    if (currencies.length === 2) {
+        return output + `${currencies[0].name} and ${currencies[1].name}'s`;
+    } else {
+        return output + `${currencies[0].name}`;
     }
 }
