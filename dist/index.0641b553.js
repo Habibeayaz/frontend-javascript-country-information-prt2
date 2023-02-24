@@ -576,10 +576,16 @@ async function fetchData(name) {
         const country = result.data[0];
         console.log(result.data[0]);
         searchResult.innerHTML = `
-        <h3>${country.name}</h3>        <p>${country.region}</p>    `;
+        <h3>${country.name}</h3>
+        <p>${country.region} ${currencyCreator(country.currencies)}</p>    `;
     } catch (e) {
         console.error(e);
     }
+}
+function currencyCreator(currencies) {
+    let output = " and you can pay with";
+    if (currencies.length === 2) return output + `${currencies[0].name} and ${currencies[1].name}'s`;
+    else return output + `${currencies[0].name}`;
 }
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
