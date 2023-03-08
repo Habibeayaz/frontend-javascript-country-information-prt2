@@ -599,12 +599,12 @@ function countryLanguage(languages) {
     let output = "They speak ";
     if (languages.length === 1) return output + `${languages[0].name}`;
     else if (languages.length === 2) return output + `${languages[0].name} and ${languages[1].name}`;
-    else if (languages.length === 3) return output + `${languages[0].name}, ${languages[1].name}, and ${languages[2].name}`;
+    else if (languages.length === 3) return output + `${languages[0].name}, ${languages[1].name} and ${languages[2].name}`;
     else if (languages.length > 3) {
-        const lastTwo = `${languages[languages.length - 2].name}, and ${languages[languages.length - 1].name}`;
+        const lastTwo = `${languages[languages.length - 2].name} and ${languages[languages.length - 1].name}`;
         const otherLanguages = languages.slice(0, -2).map((lang)=>lang.name).join(", ");
         return output + `${otherLanguages}, ${lastTwo}`;
-    } else return output;
+    } else return output + `${languages[0].name}`;
 }
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
