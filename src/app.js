@@ -25,7 +25,7 @@ searchResult.innerHTML = `<img class="flag" src="${country.flag}" alt="The natio
               <h2>${country.name}</h2>
               <p>${country.name} is situated in ${country.region}. It has a population of ${country.population} people</p>
               <p>The capital is ${country.capital} ${currencyCreator(country.currencies)}</p>
-              <!--<p>{countryLanguage}</p>-->
+              <p>${countryLanguage(country.languages)}</p>
               `
 } catch(e){
     console.error(e);
@@ -44,20 +44,20 @@ function currencyCreator(currencies){
     }
 }
 
-/*
-function countryLanguage(language){
+function countryLanguage(languages) {
+    let output = 'They speak ';
 
-    let languageString = '';
-
-    switch (numLanguages) {
-        case 1:
-            languageString = `They speak ${languages[0]}`;
-            break;
-        case 2:
-            languageString = `They speak ${languages[0]} and ${languages[1]}`;
-            break;
-        default:
-            languageString = `They speak ${languages.slice(0, -1).join(', ')} and ${languages[numLanguages - 1]}`;
-            break;
+    if (languages.length === 1) {
+        return output + `${languages[0].name}`;
+    } else if (languages.length === 2) {
+        return output + `${languages[0].name} and ${languages[1].name}`;
+    } else if (languages.length === 3) {
+        return output + `${languages[0].name}, ${languages[1].name}, and ${languages[2].name}`;
+    } else if (languages.length > 3) {
+        const lastTwo = `${languages[languages.length - 2].name}, and ${languages[languages.length - 1].name}`;
+        const otherLanguages = languages.slice(0, -2).map(lang => lang.name).join(', ');
+        return output + `${otherLanguages}, ${lastTwo}`;
+    } else {
+        return output;
     }
-}*/
+}
