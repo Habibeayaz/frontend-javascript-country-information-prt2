@@ -11,11 +11,11 @@ function searchCountry(e){
     fetchData(searchValue.value);
 
     searchValue.value = '';
-
 }
 
 async function fetchData(name){
     searchResult.innerHTML = ``;
+    errorMessageBox.innerHTML = ``;
 
     try{
         const result = await axios.get(`https://restcountries.com/v2/name/${name}`)

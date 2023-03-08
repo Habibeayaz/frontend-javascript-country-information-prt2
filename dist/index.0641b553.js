@@ -572,6 +572,7 @@ function searchCountry(e) {
 }
 async function fetchData(name) {
     searchResult.innerHTML = ``;
+    errorMessageBox.innerHTML = ``;
     try {
         const result = await (0, _axiosDefault.default).get(`https://restcountries.com/v2/name/${name}`);
         const country = result.data[0];
