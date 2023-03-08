@@ -27,7 +27,7 @@ h2 {
 
 
 .error-message {
-    padding: 16px 0;
-    color: indianred;
-    border-radius: 8px;
+    color: #ff6666;
+    font-weight: bold;
 }
+

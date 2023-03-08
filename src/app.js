@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const searchResult = document.getElementById('search-result');
-const searchForm = document.getElementById('search-form')
+const searchForm = document.getElementById('search-form');
+const errorMessageBox = document.getElementById('error-message-box');
 searchForm.addEventListener('submit', searchCountry);
 
 function searchCountry(e){

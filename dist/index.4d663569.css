@@ -25,9 +25,8 @@ h2 {
 }
 
 .error-message {
-  color: #cd5c5c;
-  border-radius: 8px;
-  padding: 16px 0;
+  color: #f66;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.4d663569.css.map */

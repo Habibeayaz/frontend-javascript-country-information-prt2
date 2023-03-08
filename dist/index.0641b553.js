@@ -562,6 +562,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const searchResult = document.getElementById("search-result");
 const searchForm = document.getElementById("search-form");
+const errorMessageBox = document.getElementById("error-message-box");
 searchForm.addEventListener("submit", searchCountry);
 function searchCountry(e) {
     e.preventDefault();
@@ -579,7 +580,7 @@ async function fetchData(name) {
               <h2>${country.name}</h2>
               <p>${country.name} is situated in ${country.region}. It has a population of ${country.population} people</p>
               <p>The capital is ${country.capital} ${currencyCreator(country.currencies)}</p>
-              <!--<p>{countryLanguage}</p>-->
+              <p>${countryLanguage(country.languages)}</p>
               `;
     } catch (e) {
         console.error(e);
@@ -592,23 +593,18 @@ function currencyCreator(currencies) {
     let output = " and you can pay with ";
     if (currencies.length === 2) return output + `${currencies[0].name} and ${currencies[1].name}'s`;
     else return output + `${currencies[0].name}`;
-} /*
-function countryLanguage(language){
-
-    let languageString = '';
-
-    switch (numLanguages) {
-        case 1:
-            languageString = `They speak ${languages[0]}`;
-            break;
-        case 2:
-            languageString = `They speak ${languages[0]} and ${languages[1]}`;
-            break;
-        default:
-            languageString = `They speak ${languages.slice(0, -1).join(', ')} and ${languages[numLanguages - 1]}`;
-            break;
-    }
-}*/ 
+}
+function countryLanguage(languages) {
+    let output = "They speak ";
+    if (languages.length === 1) return output + `${languages[0].name}`;
+    else if (languages.length === 2) return output + `${languages[0].name} and ${languages[1].name}`;
+    else if (languages.length === 3) return output + `${languages[0].name}, ${languages[1].name}, and ${languages[2].name}`;
+    else if (languages.length > 3) {
+        const lastTwo = `${languages[languages.length - 2].name}, and ${languages[languages.length - 1].name}`;
+        const otherLanguages = languages.slice(0, -2).map((lang)=>lang.name).join(", ");
+        return output + `${otherLanguages}, ${lastTwo}`;
+    } else return output;
+}
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
