@@ -21,7 +21,6 @@ h1 {
     font-size: 50px;
 }
 
-
 #search-form button {
     text-transform: uppercase;
     background-color: #A7D160;
@@ -57,24 +56,6 @@ h1 {
     font-size: 36px;
     padding: 0 0 0px 20px;
 }
-
-.search-result-box p {
-    padding: 8px 0;
-}
-
-/*.flag {
-    width: 40px;
-    margin-right: 16px;
-    display: inline-block;
-}*/
-
-/*.flag-title-container {
-    border-bottom: 1px solid #ededed;
-    display: flex;
-    align-items: baseline;
-    margin: 0 0 12px 0;
-}*/
-
 
 .error-message {
     color: #ff6666;

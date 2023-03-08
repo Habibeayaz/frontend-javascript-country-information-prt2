@@ -56,10 +56,6 @@ h1 {
   display: inline-block;
 }
 
-.search-result-box p {
-  padding: 8px 0;
-}
-
 .error-message {
   color: #f66;
   font-weight: bold;
